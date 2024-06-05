@@ -1,19 +1,27 @@
-import { IsString, IsNotEmpty, IsNumber, IsBoolean } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsString, IsNumber, IsBoolean } from 'class-validator';
 
 export class CreateProductDto {
-  @IsString()
+  @ApiProperty({ example: 'Produto A', description: 'Nome do produto' })
   @IsNotEmpty()
-  sku: string;
-
   @IsString()
-  @IsNotEmpty()
   name: string;
 
-  @IsNumber()
+  @ApiProperty({ example: 'SKU123456', description: 'SKU do produto' })
   @IsNotEmpty()
+  @IsString()
+  sku: string;
+
+  @ApiProperty({ example: 99.99, description: 'Preço do produto' })
+  @IsNotEmpty()
+  @IsNumber()
   price: number;
 
-  @IsBoolean()
+  @ApiProperty({
+    example: true,
+    description: 'Indica se o produto aceita troca expressa',
+  })
   @IsNotEmpty()
+  @IsBoolean()
   acceptsExpressExchange: boolean;
 }
