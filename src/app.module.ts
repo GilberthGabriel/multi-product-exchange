@@ -6,10 +6,7 @@ import { ExchangesModule } from './modules/exchanges/exchanges.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://potidev:TmKiNKuyq1uedwNn@cluster0.odd3ug2.mongodb.net/multitech' ||
-        process.env.MONGO_URI,
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
     CustomersModule,
     ProductsModule,
     ExchangesModule,
