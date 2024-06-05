@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CustomersModule } from './modules/customers/customers.module';
 import { ProductsModule } from './modules/products/products.module';
-import { NotificationsModule } from './modules/notifications/notifications.module';
 import { ExchangesModule } from './modules/exchanges/exchanges.module';
 
 @Module({
