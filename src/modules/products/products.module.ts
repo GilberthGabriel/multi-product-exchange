@@ -10,5 +10,6 @@ import { Product, ProductSchema } from './entities';
   ],
   controllers: [ProductsController],
   providers: [ProductsService],
+  exports: [ProductsService],
 })
 export class ProductsModule {}
