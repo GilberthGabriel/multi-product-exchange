@@ -20,7 +20,6 @@ export class CreateCustomerDto {
   @IsNotEmpty()
   email: string;
 
-  @IsPhoneNumber(null)
   @IsNotEmpty()
   phone: string;
 }

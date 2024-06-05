@@ -6,6 +6,8 @@ import {
   Param,
   Patch,
   Delete,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { CreateCustomerDto, UpdateCustomerDto, CreateAddressDto } from './dtos';
@@ -16,6 +18,7 @@ export class CustomersController {
   constructor(private readonly customersService: CustomersService) {}
 
   @Post()
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
   create(@Body() createCustomerDto: CreateCustomerDto): Promise<Customer> {
     return this.customersService.create(createCustomerDto);
   }
@@ -39,6 +42,7 @@ export class CustomersController {
   }
 
   @Post(':id/addresses')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
   addAddress(
     @Param('id') id: string,
     @Body() createAddressDto: CreateAddressDto,
